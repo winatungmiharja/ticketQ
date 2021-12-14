@@ -15,6 +15,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        hero: "url('/images/hero.jpg')",
+        herosmall: "url('/images/hero-sm.jpg')",
+        host: "url('/images/host.jpg')",
+        hostsmall: "url('/images/host-sm.jpg')",
+      },
       fontFamily: {
         heading: ['Sora', ...fontFamily.sans],
         text: ['Poppins', ...fontFamily.sans],
