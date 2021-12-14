@@ -256,11 +256,11 @@ export default function Header() {
               </button>
 
               {/* Logo */}
-              <div className='flex ml-4 lg:ml-0'>
+              <div className='flex hidden ml-4 md:block lg:ml-0'>
                 <a href='#'>
                   <span className='sr-only'>Workflow</span>
                   <img
-                    className='w-auto h-12'
+                    className='w-auto h-8'
                     src='/favicon/large-og.png'
                     alt=''
                   />

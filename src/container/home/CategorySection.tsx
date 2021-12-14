@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export default function CategorySection() {
   return (
-    <section aria-labelledby='category-heading' className='bg-gray-50'>
+    <section aria-labelledby='category-heading'>
       <div className='layout'>
         <div className='sm:flex sm:justify-between sm:items-baseline'>
           <h2
@@ -14,7 +14,7 @@ export default function CategorySection() {
           </h2>
           <a
             href='#'
-            className='hidden text-sm font-semibold text-indigo-600 sm:block hover:text-indigo-500'
+            className='hidden px-4 py-1 text-sm font-semibold text-fuchsia-600 bg-white rounded-full transition-all ease-in-out sm:block hover:shadow-fuchsia-100/50 hover:shadow-lg'
           >
             Browse all categories<span aria-hidden='true'> &rarr;</span>
           </a>
