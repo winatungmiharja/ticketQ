@@ -16,11 +16,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        heading: ['Sora', ...fontFamily.sans],
+        text: ['Poppins', ...fontFamily.sans],
       },
       colors: {
         primary: {
-          // Customize it on globals.css :root
           50: withOpacity('--tw-clr-primary-50'),
           100: withOpacity('--tw-clr-primary-100'),
           200: withOpacity('--tw-clr-primary-200'),
