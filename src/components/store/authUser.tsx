@@ -1,6 +1,6 @@
 import create from 'zustand';
 
-import { SessionUserType } from '@/lib/type';
+import { SessionUserType } from '../../lib/type';
 
 export interface UserType {
   id: string;
