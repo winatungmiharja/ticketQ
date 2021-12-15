@@ -13,13 +13,14 @@ export default function CtaSection() {
                   id='sale-heading'
                   className='text-4xl font-extrabold tracking-tight text-white md:text-5xl'
                 >
-                  Final Stock.
+                  Tunggu apa
                   <br />
-                  Up to 50% off.
+                  lagi?
                 </h2>
                 <div className='mt-6 text-base'>
                   <a href='#' className='font-semibold text-white'>
-                    Shop the sale<span aria-hidden='true'> &rarr;</span>
+                    segera belanja di TicketQ
+                    <span aria-hidden='true'> &rarr;</span>
                   </a>
                 </div>
               </div>
@@ -31,7 +32,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='/images/explore/1.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
 
@@ -39,7 +40,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='/images/explore/2.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
                   </div>
@@ -48,7 +49,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='/images/explore/3.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
 
@@ -56,7 +57,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='/images/explore/4.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
                   </div>
@@ -65,7 +66,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='https://tailwindui.com/img/ecommerce-images/home-page-03-category-01.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
 
@@ -73,7 +74,7 @@ export default function CtaSection() {
                       <img
                         className='object-cover w-64 h-64 rounded-lg md:w-72 md:h-72'
                         src='https://tailwindui.com/img/ecommerce-images/home-page-03-category-02.jpg'
-                        alt=''
+                        alt='destinasi'
                       />
                     </div>
                   </div>

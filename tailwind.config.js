@@ -17,9 +17,12 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/images/hero.jpg')",
+
         herosmall: "url('/images/hero-sm.jpg')",
         host: "url('/images/host.jpg')",
         hostsmall: "url('/images/host-sm.jpg')",
+        outdoor: "url('/images/outdoor.jpg')",
+        banner: "url('/images/banner.jpg')",
       },
       fontFamily: {
         heading: ['Sora', ...fontFamily.sans],

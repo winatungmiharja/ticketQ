@@ -4,28 +4,27 @@ import * as React from 'react';
 const favorites = [
   {
     id: 1,
-    name: 'Black Basic Tee',
-    price: '$32',
+    name: 'Bandung',
+    price: 'diskon 20%',
     href: '#',
     imageSrc: '/images/results/5.jpg',
-    imageAlt: "Model wearing women's black cotton crewneck tee.",
+    imageAlt: 'destinasi',
   },
   {
     id: 2,
-    name: 'Off-White Basic Tee',
-    price: '$32',
+    name: 'Surabaya',
+    price: 'total 560 pengunjung',
     href: '#',
     imageSrc: '/images/results/6.jpg',
-    imageAlt: "Model wearing women's off-white cotton crewneck tee.",
+    imageAlt: 'destinasi',
   },
   {
     id: 3,
-    name: 'Mountains Artwork Tee',
-    price: '$36',
+    name: 'Jambi',
+    price: 'diskon 56%',
     href: '#',
     imageSrc: '/images/results/3.jpg',
-    imageAlt:
-      "Model wearing women's burgundy red crewneck artwork tee with small white triangle overlapping larger black triangle.",
+    imageAlt: 'destinasi',
   },
 ];
 export default function FavoritesSection() {
@@ -37,13 +36,13 @@ export default function FavoritesSection() {
             id='favorites-heading'
             className='text-2xl font-extrabold tracking-tight text-gray-900'
           >
-            Our Favorites
+            Favorit Pengunjung
           </h2>
           <a
             href='#'
-            className='hidden text-sm font-semibold text-indigo-600 sm:block hover:text-indigo-500'
+            className='hidden text-sm font-semibold text-primary-600 sm:block hover:text-primary-500'
           >
-            Browse all favorites<span aria-hidden='true'> &rarr;</span>
+            Lihat semua favorit<span aria-hidden='true'> &rarr;</span>
           </a>
         </div>
 
@@ -71,7 +70,7 @@ export default function FavoritesSection() {
         <div className='mt-6 sm:hidden'>
           <a
             href='#'
-            className='block text-sm font-semibold text-indigo-600 hover:text-indigo-500'
+            className='block text-sm font-semibold text-primary-600 hover:text-primary-500'
           >
             Browse all favorites<span aria-hidden='true'> &rarr;</span>
           </a>

@@ -11,17 +11,17 @@ export default function FeaturedSection() {
             id='cause-heading'
             className='text-3xl font-extrabold tracking-tight text-white sm:text-4xl'
           >
-            Easy Book
+            Pembelian secara mudah
           </h2>
           <p className='mt-3 text-xl text-white'>
-            {"We're committed to responsible, sustainable, and ethical book "}
+            {'Semua serba online, dijamin cepat dan aman! '}
           </p>
           <div>
             <a
               href='#'
               className='block px-8 py-3 mt-8 w-full text-base font-medium text-gray-900 bg-white rounded-md border border-transparent sm:w-auto hover:bg-gray-100'
             >
-              Read our story
+              Pesan Tiket
             </a>
           </div>
         </div>

@@ -3,13 +3,24 @@ import * as React from 'react';
 import Footer from './Footer';
 import Header from './Header';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+type LayoutType = {
+  children: React.ReactNode;
+  showLogin?: boolean;
+  showSignin?: boolean;
+};
+export default function Layout({
+  children,
+  showLogin,
+  showSignin,
+}: LayoutType) {
   // Put Header or Footer Here
   return (
     <>
-      <Header />
+      {/* <Auth> */}
+      <Header showLogin={showLogin} showSignin={showSignin} />
       {children}
       <Footer />
+      {/* </Auth> */}
     </>
   );
 }

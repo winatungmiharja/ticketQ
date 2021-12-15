@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { Fragment, useState } from 'react';
 import { HiOutlineMenu, HiOutlineSearch, HiOutlineX } from 'react-icons/hi';
 
+import CustomLink from '../links/CustomLink';
+
 const navigation = {
   categories: [
     {
@@ -11,59 +13,28 @@ const navigation = {
       name: 'Lihat perjalanan',
       featured: [
         {
-          name: 'New Arrivals',
+          name: 'Kota Favorit',
           href: '#',
-          imageSrc:
-            'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-          imageAlt:
-            'Models sitting back to back, wearing Basic Tee in black and bone.',
+          imageSrc: '/images/results/1.jpg',
+          imageAlt: 'Jambi',
         },
         {
-          name: 'Basic Tees',
+          name: 'Surabaya',
           href: '#',
-          imageSrc:
-            'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-          imageAlt:
-            'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+          imageSrc: '/images/results/3.jpg',
+          imageAlt: 'surabaya',
         },
       ],
       sections: [
         {
           id: 'clothing',
-          name: 'Clothing',
+          name: 'Pulau',
           items: [
-            { name: 'Tops', href: '#' },
-            { name: 'Dresses', href: '#' },
-            { name: 'Pants', href: '#' },
-            { name: 'Denim', href: '#' },
-            { name: 'Sweaters', href: '#' },
-            { name: 'T-Shirts', href: '#' },
-            { name: 'Jackets', href: '#' },
-            { name: 'Activewear', href: '#' },
-            { name: 'Browse All', href: '#' },
-          ],
-        },
-        {
-          id: 'accessories',
-          name: 'Accessories',
-          items: [
-            { name: 'Watches', href: '#' },
-            { name: 'Wallets', href: '#' },
-            { name: 'Bags', href: '#' },
-            { name: 'Sunglasses', href: '#' },
-            { name: 'Hats', href: '#' },
-            { name: 'Belts', href: '#' },
-          ],
-        },
-        {
-          id: 'brands',
-          name: 'Brands',
-          items: [
-            { name: 'Full Nelson', href: '#' },
-            { name: 'My Way', href: '#' },
-            { name: 'Re-Arranged', href: '#' },
-            { name: 'Counterfeit', href: '#' },
-            { name: 'Significant Other', href: '#' },
+            { href: '#Denpasar', name: 'Denpasar' },
+            { href: '#Kalimantan', name: 'Kalimantan' },
+            { href: '#Sulawesi', name: 'Sulawesi' },
+            { href: '#Papua', name: 'Papua' },
+            { href: '#Jawa', name: 'Jawa' },
           ],
         },
       ],
@@ -75,7 +46,14 @@ const navigation = {
   ],
 };
 
-export default function Header() {
+type HeaderType = {
+  showLogin?: boolean;
+  showSignin?: boolean;
+};
+export default function Header({
+  showLogin = true,
+  showSignin = true,
+}: HeaderType) {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -128,7 +106,7 @@ export default function Header() {
                         className={({ selected }) =>
                           clsx(
                             selected
-                              ? 'text-indigo-600 border-indigo-600'
+                              ? 'text-primary-600 border-primary-600'
                               : 'text-gray-900 border-transparent',
                             'flex-1 px-1 py-4 text-base font-medium whitespace-nowrap border-b-2'
                           )
@@ -151,11 +129,11 @@ export default function Header() {
                             key={item.name}
                             className='group relative text-sm'
                           >
-                            <div className='aspect-h-1 aspect-w-1 overflow-hidden bg-gray-100 rounded-lg group-hover:opacity-75'>
+                            <div className='overflow-hidden bg-gray-100 rounded-lg group-hover:opacity-75'>
                               <img
                                 src={item.imageSrc}
                                 alt={item.imageAlt}
-                                className='object-cover object-center'
+                                className='aspect-square'
                               />
                             </div>
                             <a
@@ -169,7 +147,7 @@ export default function Header() {
                               {item.name}
                             </a>
                             <p aria-hidden='true' className='mt-1'>
-                              Shop now
+                              Beli tiket
                             </p>
                           </div>
                         ))}
@@ -219,22 +197,16 @@ export default function Header() {
               </div>
 
               <div className='px-4 py-6 space-y-6 border-t border-gray-200'>
-                <div className='flow-root'>
-                  <a
-                    href='#'
-                    className='block p-2 -m-2 font-medium text-gray-900'
-                  >
-                    Masuk
-                  </a>
-                </div>
-                <div className='flow-root'>
-                  <a
-                    href='#'
-                    className='block p-2 -m-2 font-medium text-gray-900'
-                  >
-                    Daftar
-                  </a>
-                </div>
+                {showLogin && (
+                  <div className='flow-root'>
+                    <CustomLink href='/login'>Masuk</CustomLink>
+                  </div>
+                )}
+                {showSignin && (
+                  <div className='flow-root'>
+                    <CustomLink href='/register'>Daftar</CustomLink>
+                  </div>
+                )}
               </div>
             </div>
           </Transition.Child>
@@ -256,9 +228,9 @@ export default function Header() {
               </button>
 
               {/* Logo */}
-              <div className='flex hidden ml-4 md:block lg:ml-0'>
+              <div className='hidden ml-4 md:block lg:ml-0'>
                 <a href='#'>
-                  <span className='sr-only'>Workflow</span>
+                  <span className='sr-only'>TicketQ</span>
                   <img
                     className='w-auto h-8'
                     src='/favicon/large-og.png'
@@ -278,7 +250,7 @@ export default function Header() {
                             <Popover.Button
                               className={clsx(
                                 open
-                                  ? 'border-indigo-600 text-indigo-600'
+                                  ? 'border-primary-600 text-primary-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
                                 'flex relative z-10 items-center pt-px -mb-px text-sm font-medium border-b-2 transition-colors duration-200 ease-out'
                               )}
@@ -402,24 +374,16 @@ export default function Header() {
                   ))}
                 </div>
               </Popover.Group>
-
               <div className='flex items-center ml-auto'>
                 <div className='hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:space-x-6'>
-                  <a
-                    href='#'
-                    className='text-sm font-medium text-gray-700 hover:text-gray-800'
-                  >
-                    Masuk
-                  </a>
-                  <span className='w-px h-6 bg-gray-200' aria-hidden='true' />
-                  <a
-                    href='#'
-                    className='text-sm font-medium text-gray-700 hover:text-gray-800'
-                  >
-                    Daftar
-                  </a>
+                  {showLogin && <CustomLink href='/login'>Masuk</CustomLink>}
+                  {showLogin && showSignin && (
+                    <span className='w-px h-6 bg-gray-200' aria-hidden='true' />
+                  )}
+                  {showSignin && (
+                    <CustomLink href='/register'>Daftar</CustomLink>
+                  )}
                 </div>
-
                 {/* Search */}
                 <div className='flex lg:ml-6'>
                   <a href='#' className='p-2 text-gray-400 hover:text-gray-500'>

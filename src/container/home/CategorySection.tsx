@@ -10,13 +10,13 @@ export default function CategorySection() {
             id='category-heading'
             className='text-2xl font-extrabold tracking-tight text-gray-900'
           >
-            Shop by Category
+            Destinasi baru menunggu
           </h2>
           <a
             href='#'
             className='hidden px-4 py-1 text-sm font-semibold text-fuchsia-600 bg-white rounded-full transition-all ease-in-out sm:block hover:shadow-fuchsia-100/50 hover:shadow-lg'
           >
-            Browse all categories<span aria-hidden='true'> &rarr;</span>
+            Lihat semua destinasi<span aria-hidden='true'> &rarr;</span>
           </a>
         </div>
 
@@ -24,7 +24,7 @@ export default function CategorySection() {
           <div className='group overflow-hidden relative rounded-lg'>
             <img
               src='/images/live/1.jpg'
-              alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+              alt='destinasi'
               className='object-cover object-center h-full group-hover:opacity-75'
             />
             <div
@@ -36,11 +36,11 @@ export default function CategorySection() {
                 <h3 className='font-semibold text-white'>
                   <a href='#'>
                     <span className='absolute inset-0' />
-                    New Arrivals
+                    Destinasi Baru
                   </a>
                 </h3>
                 <p aria-hidden='true' className='mt-1 text-sm text-white'>
-                  Shop now
+                  Pesan sekarang
                 </p>
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function CategorySection() {
             <div className='group overflow-hidden relative rounded-lg md:aspect-[2/1]'>
               <img
                 src='/images/live/3.jpg'
-                alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+                alt='destinasi'
                 className='object-cover object-center group-hover:opacity-75'
               />
               <div
@@ -61,11 +61,11 @@ export default function CategorySection() {
                   <h3 className='font-semibold text-white'>
                     <a href='#'>
                       <span className='absolute inset-0' />
-                      New Arrivals
+                      Destinasi Baru
                     </a>
                   </h3>
                   <p aria-hidden='true' className='mt-1 text-sm text-white'>
-                    Shop now
+                    Pesan sekarang
                   </p>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function CategorySection() {
             <div className='group overflow-hidden relative rounded-lg md:aspect-[2/1]'>
               <img
                 src='/images/live/2.jpg'
-                alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+                alt='destinasi'
                 className='object-cover object-center group-hover:opacity-75'
               />
               <div
@@ -85,11 +85,11 @@ export default function CategorySection() {
                   <h3 className='font-semibold text-white'>
                     <a href='#'>
                       <span className='absolute inset-0' />
-                      New Arrivals
+                      Destinasi Baru
                     </a>
                   </h3>
                   <p aria-hidden='true' className='mt-1 text-sm text-white'>
-                    Shop now
+                    Pesan sekarang
                   </p>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function CategorySection() {
         <div className='mt-6 sm:hidden'>
           <a
             href='#'
-            className='block text-sm font-semibold text-indigo-600 hover:text-indigo-500'
+            className='block text-sm font-semibold text-primary-600 hover:text-primary-500'
           >
             Browse all categories<span aria-hidden='true'> &rarr;</span>
           </a>
