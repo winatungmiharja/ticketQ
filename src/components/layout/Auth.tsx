@@ -18,9 +18,10 @@ export default function Auth({ children }: { children: React.ReactNode }) {
 
   const checkUserSession = async (token: string) => {
     const resData = await sessionUser(token);
+
     if (resData.isSuccess) {
-      const newData: SessionUserType = resData.data;
-      saveUserToken(resData.data.id_session_account);
+      const newData: SessionUserType = resData.data[0];
+      saveUserToken(resData.data[0].id_session_account);
       userStore.setSessionUser(newData);
       setPreload(false);
       return true;
@@ -49,13 +50,11 @@ export default function Auth({ children }: { children: React.ReactNode }) {
       const isAdmin = false;
       const isUser = await checkUserSession(JSON.parse(local));
 
-      if (path.includes('/admin')) {
-        isAdmin ? setPreload(false) : redirectToLogin();
-      } else if (path.includes('/user')) {
+      if (path.includes('/admin') || path.includes('/user')) {
         isUser ? setPreload(false) : redirectToLogin();
       } else {
         if (isAdmin) router.push('/admin/home');
-        else if (isUser) router.push('/user/home');
+        else if (isUser) router.push('/user/tiket');
         else setPreload(false);
       }
     }

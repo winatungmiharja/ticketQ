@@ -6,6 +6,16 @@ import { HiOutlineMenu, HiOutlineSearch, HiOutlineX } from 'react-icons/hi';
 
 import CustomLink from '../links/CustomLink';
 
+const userNavigation = {
+  categories: [],
+  pages: [
+    { name: 'Beli Tiket', href: '/user/tiket' },
+    { name: 'Profil', href: '/user/profile' },
+    { name: 'Data', href: '/user/data' },
+    { name: 'Transaksi', href: '/user/transaksi' },
+  ],
+};
+
 const navigation = {
   categories: [
     {
@@ -41,7 +51,7 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Tentang', href: '#' },
+    { name: 'Customer', href: '/user/customer' },
     { name: 'Kontak', href: '#' },
   ],
 };
@@ -54,6 +64,8 @@ export default function Header({
   showLogin = true,
   showSignin = true,
 }: HeaderType) {
+  const navigationData =
+    !showLogin && !showSignin ? userNavigation : navigation;
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -100,7 +112,7 @@ export default function Header({
               <Tab.Group as='div' className='mt-2'>
                 <div className='border-b border-gray-200'>
                   <Tab.List className='flex px-4 -mb-px space-x-8'>
-                    {navigation.categories.map((category) => (
+                    {navigationData.categories.map((category) => (
                       <Tab
                         key={category.name}
                         className={({ selected }) =>
@@ -118,7 +130,7 @@ export default function Header({
                   </Tab.List>
                 </div>
                 <Tab.Panels as={Fragment}>
-                  {navigation.categories.map((category) => (
+                  {navigationData.categories.map((category) => (
                     <Tab.Panel
                       key={category.name}
                       className='px-4 pt-10 pb-8 space-y-10'
@@ -184,7 +196,7 @@ export default function Header({
               </Tab.Group>
 
               <div className='px-4 py-6 space-y-6 border-t border-gray-200'>
-                {navigation.pages.map((page) => (
+                {navigationData.pages.map((page) => (
                   <div key={page.name} className='flow-root'>
                     <a
                       href={page.href}
@@ -242,7 +254,7 @@ export default function Header({
               {/* Flyout menus */}
               <Popover.Group className='hidden lg:block lg:self-stretch lg:ml-8'>
                 <div className='flex space-x-8 h-full'>
-                  {navigation.categories.map((category) => (
+                  {navigationData.categories.map((category) => (
                     <Popover key={category.name} className='flex'>
                       {({ open }) => (
                         <>
@@ -363,7 +375,7 @@ export default function Header({
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {navigationData.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}

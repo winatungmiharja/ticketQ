@@ -31,7 +31,7 @@ export default function InputPassword({
   } = useFormContext();
   return (
     <div>
-      <label htmlFor={id} className='block text-sm font-normal text-gray-700'>
+      <label htmlFor={id} className='block text-sm font-medium text-gray-700'>
         {label}
       </label>
 
@@ -42,7 +42,7 @@ export default function InputPassword({
             {...rest}
             className='block px-3 py-2 w-full placeholder-gray-400 rounded-md border border-gray-300 shadow-sm appearance-none sm:text-sm focus:border-primary-500 focus:ring-primary-500 focus:outline-none'
             type='text'
-            id='username'
+            id={'password'}
             name={id}
             placeholder={placeholder}
             aria-describedby={id}

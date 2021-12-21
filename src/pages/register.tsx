@@ -3,18 +3,19 @@ import { useRouter } from 'next/router';
 import * as React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { registerUser } from '@/lib/fetch';
-import { RegisterUserType } from '@/lib/type';
+import { getCountryData, registerUser } from '@/lib/fetch';
+import { CountryDataType, RegisterUserType } from '@/lib/type';
 
 import Button from '@/components/buttons/Button';
 import Input from '@/components/input/Input';
 import InputPassword from '@/components/input/InputPassword';
+import SelectInput from '@/components/input/SelectInput';
 import Layout from '@/components/layout/Layout';
 import CustomLink from '@/components/links/CustomLink';
 import Seo from '@/components/Seo';
 import { saveUserToken } from '@/components/store/localStorage';
 
-export default function LoginPage() {
+export default function LoginPage({ data }: { data: CountryDataType[] }) {
   const router = useRouter();
   const [error, setError] = React.useState<null | string>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -24,6 +25,8 @@ export default function LoginPage() {
       username: '',
       email: '',
       password: '',
+      country: '1',
+      telp: '',
     },
     mode: 'onTouched',
     reValidateMode: 'onChange',
@@ -34,6 +37,7 @@ export default function LoginPage() {
     setError(null);
     setLoading(true);
     const resData = await registerUser(data);
+
     if (resData.isSuccess) {
       saveUserToken(resData.data.id_session_account);
       router.push('/user/home');
@@ -65,7 +69,6 @@ export default function LoginPage() {
                 </span>
               </p>
             </div>
-
             <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
               <div className='px-4 py-8 bg-white rounded-lg shadow sm:px-10'>
                 <FormProvider {...methods}>
@@ -115,6 +118,28 @@ export default function LoginPage() {
                         pattern: /^(?=.{8,}$)(?=.*?[a-z])(?=.*?[A-Z]).*$/g,
                       }}
                     />
+                    <div className='grid grid-cols-2 gap-2'>
+                      <SelectInput
+                        id='country'
+                        label='Kode Negara'
+                        validation={{ required: true }}
+                      >
+                        {data.map((item) => (
+                          <option value={item.id_country} key={item.id_country}>
+                            {`${item.name_country} (+${item.phonecode_country})`}
+                          </option>
+                        ))}
+                      </SelectInput>
+                      <Input
+                        type='number'
+                        id={'telp'}
+                        label={'No.Hp'}
+                        validation={{
+                          required: true,
+                          pattern: /^08\d{9,10}$/g,
+                        }}
+                      />
+                    </div>
                     <div>
                       <Button type='submit' isLoading={loading}>
                         Daftar
@@ -128,7 +153,6 @@ export default function LoginPage() {
                   </form>
                 </FormProvider>
                 <hr className='mt-8 text-gray-300' />
-
                 <div className='flex justify-between mt-8'>
                   <div className='text-sm'>
                     <p className='font-medium text-primary-600'>
@@ -146,4 +170,16 @@ export default function LoginPage() {
       </main>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await getCountryData();
+
+  if (!res.isSuccess) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return { props: { data: res.data } };
 }

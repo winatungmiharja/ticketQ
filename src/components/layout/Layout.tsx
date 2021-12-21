@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Auth from './Auth';
 import Footer from './Footer';
 import Header from './Header';
 
@@ -16,11 +17,11 @@ export default function Layout({
   // Put Header or Footer Here
   return (
     <>
-      {/* <Auth> */}
-      <Header showLogin={showLogin} showSignin={showSignin} />
-      {children}
-      <Footer />
-      {/* </Auth> */}
+      <Auth>
+        <Header showLogin={showLogin} showSignin={showSignin} />
+        {children}
+        <Footer />
+      </Auth>
     </>
   );
 }

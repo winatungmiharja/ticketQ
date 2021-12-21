@@ -10,6 +10,10 @@ import {
   HiViewGrid,
 } from 'react-icons/hi';
 
+import { getScheduleData } from '@/lib/fetch';
+import { ScheduleType } from '@/lib/type';
+
+import ScheduleCard from '@/components/card/ScheduleCard';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 import useUserAuth from '@/components/store/authUser';
@@ -40,13 +44,7 @@ const filters = [
   },
 ];
 
-// type PenerbanganType = {
-//   id: number;
-//   maskapai: string;
-// };
-// const penerbangan = [{}];
-
-export default function HomePage() {
+export default function HomePage({ data }: { data: ScheduleType[] }) {
   const [mobileFiltersOpen, setMobileFiltersOpen] = React.useState(false);
   const { user } = useUserAuth();
   return (
@@ -326,33 +324,11 @@ export default function HomePage() {
                   ))}
                 </form>
 
-                {/* Product grid */}
-                {/* <div className='gap-x-6 gap-y-10 grid grid-cols-1 sm:grid-cols-2 lg:col-span-3 lg:gap-x-8'>
-                  {products.map((product) => (
-                    <a
-                      key={product.id}
-                      href={product.href}
-                      className='group text-sm'
-                    >
-                      <div className='aspect-h-1 aspect-w-1 bg-gray-100 overflow-hidden rounded-lg w-full group-hover:opacity-75'>
-                        <img
-                          src={product.imageSrc}
-                          alt={product.imageAlt}
-                          className='h-full object-center object-cover w-full'
-                        />
-                      </div>
-                      <h3 className='font-medium mt-4 text-gray-900'>
-                        {product.name}
-                      </h3>
-                      <p className='italic text-gray-500'>
-                        {product.availability}
-                      </p>
-                      <p className='font-medium mt-2 text-gray-900'>
-                        {product.price}
-                      </p>
-                    </a>
+                <div className='grid col-span-3 gap-4'>
+                  {data.map((item: ScheduleType) => (
+                    <ScheduleCard schedule={item} key={item.id_schedule} />
                   ))}
-                </div> */}
+                </div>
               </div>
             </section>
           </main>
@@ -360,4 +336,14 @@ export default function HomePage() {
       </main>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await getScheduleData();
+  if (!res.isSuccess) {
+    return {
+      notFound: true,
+    };
+  }
+  return { props: { data: res.data } };
 }
